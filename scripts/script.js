@@ -3,11 +3,18 @@ let myButton = document.querySelector("button");
 
 myButton.addEventListener("click", function(){
     if (myTitle.textContent === "Yarr!") {
-        myTitle.textContent = "Hello!";
-        myButton.textContent = "Pirate time!";
+        normalize();
     } else {
-        myTitle.textContent = "Yarr!";
-        myButton.textContent = "Normalize";
+        piratize();
     }
-    
 })
+
+function piratize() {
+    myTitle.textContent = "Yarr!";
+    myButton.textContent = "Normalize";
+}
+
+function normalize() {
+    myTitle.textContent = "Hello!";
+    myButton.textContent = "Pirate time!";
+}
