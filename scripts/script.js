@@ -1,3 +1,13 @@
+let addParaButton = document.getElementById('addPara');
+
+addParaButton.addEventListener("click", function(){
+    let paragraph = document.createElement('p');
+    paragraph.textContent = "A new paragraph.";
+    document.body.appendChild(paragraph);
+})
+
+// --------------------------------------
+
 let myCircleClass = document.getElementsByClassName('circle');
 
 for (let i = 0; i < myCircleClass.length; i++){
@@ -5,7 +15,6 @@ for (let i = 0; i < myCircleClass.length; i++){
 }
 
 function toggleCircleColor () {
-    console.log("circle clicked");
     this.classList.toggle("blue");
     this.classList.toggle("red");
 }
