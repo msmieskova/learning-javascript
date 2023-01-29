@@ -7,27 +7,45 @@ const formDiv = document.getElementById('form-wrap');
 const formName = document.getElementById('name');
 const formSurname = document.getElementById('surname');
 const formSubmitButton = document.getElementById('submit');
-
+let formDataArray;
 const fullNameParagraph = document.createElement('p');
 formDiv.appendChild(fullNameParagraph);
 
-formSubmitButton.addEventListener('click', saveFormData);
+formSubmitButton.addEventListener('click', saveAndDisplayData);
 
-function saveFormData(){
+function saveAndDisplayData(){
+    saveFormData();
     if (formName.value && formSurname.value) {
-        person.name = formName.value;
-        person.surname = formSurname.value;
-
+        // saveFormData();
         writeFullName(person.name, person.surname);
     } else {
-        console.log('missing form data');
+        alertMissingInputs(formDataArray);
     }
+}
+
+function saveFormData(){
+    formDataArray = [formName, formSurname];
+    person.name = formName.value;
+    person.surname = formSurname.value;
 }
 
 function writeFullName(name, surname){
     const fullName = `${name} ${surname}`;
     fullNameParagraph.textContent = fullName;
     console.log(fullName);
+}
+
+function alertMissingInputs(formData){
+    let missingData = '';
+
+    for (data of formData){
+        if (!data.value){
+            missingData += ' ';
+            missingData += data.name;
+        }
+    }
+
+    console.log(`Missing data:${missingData}`);
 }
 
 // --------------------------------------
