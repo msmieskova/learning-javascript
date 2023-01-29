@@ -1,3 +1,39 @@
+// --------------------------------------
+// Form name and surname operations
+// --------------------------------------
+
+const person = {};
+const formDiv = document.getElementById('form-wrap');
+const formName = document.getElementById('name');
+const formSurname = document.getElementById('surname');
+const formSubmitButton = document.getElementById('submit');
+
+const fullNameParagraph = document.createElement('p');
+formDiv.appendChild(fullNameParagraph);
+
+formSubmitButton.addEventListener('click', saveFormData);
+
+function saveFormData(){
+    if (formName.value && formSurname.value) {
+        person.name = formName.value;
+        person.surname = formSurname.value;
+
+        writeFullName(person.name, person.surname);
+    } else {
+        console.log('missing form data');
+    }
+}
+
+function writeFullName(name, surname){
+    const fullName = `${name} ${surname}`;
+    fullNameParagraph.textContent = fullName;
+    console.log(fullName);
+}
+
+// --------------------------------------
+// Adding paragraph on click 
+// --------------------------------------
+
 let addParaButton = document.getElementById('addPara');
 
 addParaButton.addEventListener("click", function(){
@@ -6,6 +42,8 @@ addParaButton.addEventListener("click", function(){
     document.body.appendChild(paragraph);
 })
 
+// --------------------------------------
+// Adding circle color on click
 // --------------------------------------
 
 let myCircleClass = document.getElementsByClassName('circle');
@@ -19,6 +57,8 @@ function toggleCircleColor () {
     this.classList.toggle("red");
 }
 
+// --------------------------------------
+// Changing text on click 
 // --------------------------------------
 
 let myTitle = document.getElementById("hello");
