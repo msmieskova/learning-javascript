@@ -14,6 +14,7 @@ formDiv.appendChild(fullNameParagraph);
 formSubmitButton.addEventListener('click', saveAndDisplayData);
 
 function saveAndDisplayData(){
+    fullNameParagraph.classList.remove("red");
     saveFormData();
     if (formName.value && formSurname.value) {
         writeFullName(person.name, person.surname);
@@ -43,6 +44,7 @@ function alertMissingInputs(formData){
         }
     }
 
+    fullNameParagraph.classList.add("red");
     fullNameParagraph.textContent = `Missing data:${missingData}`;
 }
 
