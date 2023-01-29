@@ -16,7 +16,6 @@ formSubmitButton.addEventListener('click', saveAndDisplayData);
 function saveAndDisplayData(){
     saveFormData();
     if (formName.value && formSurname.value) {
-        // saveFormData();
         writeFullName(person.name, person.surname);
     } else {
         alertMissingInputs(formDataArray);
@@ -32,7 +31,6 @@ function saveFormData(){
 function writeFullName(name, surname){
     const fullName = `${name} ${surname}`;
     fullNameParagraph.textContent = fullName;
-    console.log(fullName);
 }
 
 function alertMissingInputs(formData){
@@ -45,7 +43,7 @@ function alertMissingInputs(formData){
         }
     }
 
-    console.log(`Missing data:${missingData}`);
+    fullNameParagraph.textContent = `Missing data:${missingData}`;
 }
 
 // --------------------------------------
