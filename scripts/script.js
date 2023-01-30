@@ -1,4 +1,54 @@
 // --------------------------------------
+// Numbers
+// --------------------------------------
+const numbersDiv = document.getElementById('numbers');
+const numberInput = document.getElementById('number');
+const addNumberbutton = document.getElementById('addNumberButton');
+let numbers = [];
+let result = 0;
+const numbersList = document.createElement('p');
+numbersDiv.appendChild(numbersList);
+const resultPara = document.createElement('p');
+numbersDiv.appendChild(resultPara);
+
+addNumberbutton.addEventListener('click', addNumber);
+
+function addNumber(){
+    let input = numberInput.value;
+    if(validateInputNumber(input)){
+        input = Number(input);
+        numbers.push(input);
+        result += input;
+        displayNumbers();
+        displayResult();
+    } else {
+        console.log('Not a number');
+    }
+    
+    
+}
+
+function displayNumbers(){
+    numbersList.textContent = 'Used numbers: ';
+    for (num of numbers) {
+        numbersList.textContent += `${num} `;
+    }
+}
+
+function displayResult(){
+    resultPara.textContent = `Result: ${result}`;
+}
+
+function validateInputNumber(inputNumber){
+    const numberStructure = /[0-9]/;
+    if(numberStructure.test(inputNumber)){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// --------------------------------------
 // Form name and surname operations
 // --------------------------------------
 
